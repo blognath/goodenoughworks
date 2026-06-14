@@ -4,124 +4,283 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B. Lognath — Analytics & Operations Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
   <style>
-    ::root {
-  --orange: #f97316;
-  --amber: #f59e0b;
-  --yellow: #facc15;
+    :root {
+      --orange: #f97316;
+      --amber: #f59e0b;
+      --yellow: #facc15;
 
-  --cream: #fffdf7;
-  --warm-bg: #fff8ec;
-  --card: #ffffff;
+      --bg: #fff8ec;
+      --card: #ffffff;
+      --text: #3b2f2f;
+      --text-2: #6b5b4f;
 
-  --text: #3b2f2f;
-  --text-2: #6b5b4f;
+      --rule: #f3dcc3;
 
-  --accent: #f97316;
-  --accent-light: #fff1db;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
 
-  --rule: #f3dcc3;
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 16px;
 
-  --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 16px;
+      --shadow: 0 6px 18px rgba(249,115,22,.08),
+                0 18px 40px rgba(245,158,11,.10);
+    }
 
-  --shadow:
-    0 4px 12px rgba(249,115,22,.08),
-    0 12px 32px rgba(249,115,22,.08);
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
 
-  --serif: 'DM Serif Display', Georgia, serif;
-  --sans: 'Inter', sans-serif;
-}
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px; }
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    img { max-width: 100%; display: block; }
 
-    nav { position: sticky; top: 0; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 56px; }
-    .nav-brand { font-family: var(--serif); font-size: 17px; color: var(--white); letter-spacing: .01em; }
-    .nav-brand span { color: var(--accent); }
-    .nav-links { display: flex; gap: 28px; }
-    .nav-links a { color: rgba(255,255,255,.72); font-size: 13px; font-weight: 500; letter-spacing: .03em; transition: color .15s; }
-    .nav-links a:hover { color: var(--white); }
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 56px;
+      align-items: center;
+    }
 
-    .hero { background: var(--navy); padding: 72px 5% 56px; border-bottom: 3px solid var(--accent); }
-    .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
-    .hero h1 { font-family: var(--serif); font-size: clamp(34px, 5vw, 56px); color: var(--white); line-height: 1.15; max-width: 700px; margin-bottom: 20px; }
-    .hero h1 em { font-style: italic; color: rgba(255,255,255,.65); }
-    .hero-sub { font-size: 15px; color: rgba(255,255,255,.6); max-width: 560px; line-height: 1.7; margin-bottom: 40px; }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 17px;
+    }
+    .nav-brand span { color: var(--orange); }
 
-    .diag-bar { display: flex; gap: 0; border: 1px solid rgba(255,255,255,.12); border-radius: var(--r-md); overflow: hidden; max-width: 680px; }
-    .diag-item { flex: 1; padding: 18px 20px; border-right: 1px solid rgba(255,255,255,.10); }
+    .nav-links a {
+      margin-left: 20px;
+      font-size: 13px;
+      color: var(--text-2);
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    /* HERO */
+    .hero {
+      padding: 72px 5% 56px;
+      background: linear-gradient(135deg,#fff3d6,#ffe1b3,#ffd27d);
+      border-bottom: 4px solid var(--orange);
+    }
+
+    .hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 11px;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 em { color: #b45309; }
+
+    .hero-sub {
+      color: var(--text-2);
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+
+    /* DIAG BAR */
+    .diag-bar {
+      display: flex;
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      max-width: 700px;
+    }
+
+    .diag-item {
+      flex: 1;
+      padding: 16px;
+      border-right: 1px solid var(--rule);
+    }
     .diag-item:last-child { border-right: none; }
-    .diag-num { font-family: var(--serif); font-size: 28px; color: var(--white); line-height: 1; margin-bottom: 4px; }
-    .diag-num span { color: var(--accent); }
-    .diag-label { font-size: 11px; font-weight: 500; color: rgba(255,255,255,.5); letter-spacing: .04em; line-height: 1.4; }
 
-    .container { width: 90%; max-width: 960px; margin: 0 auto; }
-    section { padding: 64px 0; }
-    section + section { border-top: 1px solid var(--rule); }
-    .section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .section-heading { font-family: var(--serif); font-size: clamp(24px, 3vw, 32px); color: var(--navy); margin-bottom: 8px; line-height: 1.2; }
-    .section-sub { font-size: 14px; color: var(--text-2); max-width: 540px; line-height: 1.7; margin-bottom: 36px; }
+    .diag-num {
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--orange);
+    }
+    .diag-num span { color: var(--amber); }
 
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .about-block { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 24px 26px; }
-    .about-block h3 { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--mid); margin-bottom: 12px; }
-    .about-block p, .about-block li { font-size: 14px; color: var(--text-2); line-height: 1.75; }
-    .about-block ul { padding-left: 18px; }
-    .about-block li { margin-bottom: 6px; }
-    .about-block li strong { color: var(--text); font-weight: 500; }
+    .diag-label {
+      font-size: 11px;
+      color: var(--text-2);
+    }
 
-    .project-card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-lg); padding: 28px 30px; margin-bottom: 16px; box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; gap: 16px 32px; align-items: start; }
-    .project-card:hover { border-color: var(--slate); transition: border-color .2s; }
-    .proj-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); background: var(--accent-l); padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
-    .proj-title { font-family: var(--serif); font-size: 20px; color: var(--navy); margin-bottom: 6px; line-height: 1.25; }
-    .proj-problem { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin-bottom: 4px; }
-    .proj-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; margin-bottom: 16px; }
-    .proj-meta { display: flex; flex-wrap: wrap; gap: 8px; }
-    .proj-meta span { font-size: 11px; font-weight: 500; color: var(--mid); background: var(--bg); border: 1px solid var(--rule); padding: 3px 10px; border-radius: 4px; }
-    .proj-status { text-align: right; white-space: nowrap; }
-    .status-pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
-    .status-live     { background: #e6f4ea; color: #1a7c3e; }
-    .status-progress { background: #fef3e2; color: #a05c00; }
-    .status-planned  { background: #f0f0f0; color: #666; }
+    /* SECTIONS */
+    section {
+      padding: 64px 5%;
+    }
 
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
-    .skill-card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r-md); padding: 18px 20px; }
-    .skill-cat { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .skill-card li { font-size: 13px; color: var(--text-2); list-style: none; padding: 4px 0; border-bottom: 1px solid var(--rule); line-height: 1.4; }
+    .section-eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      color: var(--text-2);
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+
+    /* CARDS */
+    .about-grid,
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 16px;
+    }
+
+    .about-block,
+    .skill-card,
+    .project-card {
+      background: white;
+      border: 1px solid var(--rule);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: .2s;
+    }
+
+    .project-card {
+      margin-bottom: 16px;
+    }
+
+    .project-card:hover,
+    .about-block:hover,
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--orange);
+    }
+
+    .proj-tag {
+      display: inline-block;
+      background: #fff1db;
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .proj-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .proj-desc {
+      color: var(--text-2);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .proj-meta span {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--rule);
+      margin-right: 6px;
+      margin-top: 6px;
+    }
+
+    /* SKILLS */
+    .skill-cat {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .skill-card li {
+      list-style: none;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 13px;
+      color: var(--text-2);
+    }
     .skill-card li:last-child { border-bottom: none; }
 
-    .contact-card { background: var(--navy); border-radius: var(--r-lg); padding: 40px 44px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-    .contact-card h3 { font-family: var(--serif); font-size: 26px; color: var(--white); margin-bottom: 8px; }
-    .contact-card p { font-size: 14px; color: rgba(255,255,255,.6); max-width: 400px; line-height: 1.7; }
-    .contact-links { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
-    .contact-link { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-sm); padding: 11px 18px; color: var(--white); font-size: 13px; font-weight: 500; transition: background .15s; min-width: 200px; }
-    .contact-link:hover { background: rgba(255,255,255,.14); }
-    .contact-link svg { flex-shrink: 0; opacity: .7; }
+    /* CONTACT */
+    .contact-card {
+      background: linear-gradient(135deg,var(--orange),var(--amber));
+      padding: 40px;
+      border-radius: var(--r-lg);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.07); text-align: center; padding: 24px; font-size: 12px; color: rgba(255,255,255,.35); }
+    .contact-card p { opacity: .9; }
+
+    .contact-link {
+      display: block;
+      background: rgba(255,255,255,.15);
+      padding: 10px 14px;
+      border-radius: var(--r-sm);
+      margin-top: 10px;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      background: #fff3dd;
+      color: var(--text-2);
+    }
 
     @media (max-width: 700px) {
-      .about-grid    { grid-template-columns: 1fr; }
-      .project-card  { grid-template-columns: 1fr; }
-      .proj-status   { text-align: left; }
-      .contact-card  { flex-direction: column; }
-      .diag-bar      { flex-direction: column; }
-      .diag-item     { border-right: none; border-bottom: 1px solid rgba(255,255,255,.10); }
-      .diag-item:last-child { border-bottom: none; }
+      .diag-bar,
+      .contact-card {
+        flex-direction: column;
+      }
     }
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
+
 <body>
 
 <nav>
-  <span class="nav-brand">Good<span>Enough</span>Works</span>
+  <div class="nav-brand">Good<span>Enough</span>Works</div>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -134,213 +293,54 @@
   <p class="hero-eyebrow">Analytics & Operations Portfolio</p>
   <h1>Structured diagnostics.<br><em>Evidence-led outcomes.</em></h1>
   <p class="hero-sub">
-    B. Lognath — Operations and delivery professional with experience across
-    nuclear power, integrated steel, and public-sector banking.
-    Building consulting-grade analytical tools and process diagnostics.
+    Operations and analytics professional across nuclear, steel, and banking domains.
   </p>
+
   <div class="diag-bar">
-    <div class="diag-item">
-      <div class="diag-num">7<span>×</span></div>
-      <div class="diag-label">Consecutive clean<br>AERB regulatory audits</div>
-    </div>
-    <div class="diag-item">
-      <div class="diag-num">25<span>%</span></div>
-      <div class="diag-label">Procurement cycle<br>time reduction</div>
-    </div>
-    <div class="diag-item">
-      <div class="diag-num">3</div>
-      <div class="diag-label">Heavily regulated<br>sectors delivered in</div>
-    </div>
-    <div class="diag-item">
-      <div class="diag-num">₹5<span>Cr+</span></div>
-      <div class="diag-label">Procurement portfolio<br>managed</div>
-    </div>
+    <div class="diag-item"><div class="diag-num">7×</div><div class="diag-label">Clean audits</div></div>
+    <div class="diag-item"><div class="diag-num">25%</div><div class="diag-label">Cycle time reduction</div></div>
+    <div class="diag-item"><div class="diag-num">3</div><div class="diag-label">Regulated sectors</div></div>
+    <div class="diag-item"><div class="diag-num">₹5Cr+</div><div class="diag-label">Managed portfolio</div></div>
   </div>
 </header>
 
 <section id="about">
-  <div class="container">
-    <p class="section-eyebrow">Background</p>
-    <h2 class="section-heading">Operations depth.<br>Consulting direction.</h2>
-    <p class="section-sub">Three regulated sectors. Two certifications. One clear trajectory — toward structured client-facing problem solving in consulting and analytics.</p>
-    <div class="about-grid">
-      <div class="about-block">
-        <h3>Professional background</h3>
-        <p>Deputy Manager at NPCIL with prior roles at SAIL (integrated steel) and Indian Bank. Consistent focus on process redesign, compliance frameworks, and data-driven operational diagnostics across environments where failure carries real consequences. MBA in Operations Management (PSG Institute of Management) and B.E. in Computer Science Engineering.</p>
-      </div>
-      <div class="about-block">
-        <h3>Certifications</h3>
-        <ul>
-          <li><strong>CSM</strong> — Certified Scrum Master, Scrum Alliance</li>
-          <li><strong>CAPM</strong> — Certified Associate in Project Management, PMI</li>
-          <li><strong>Power BI</strong> — DAX & Advanced Data Modelling</li>
-          <li><strong>Advanced Excel</strong> — VBA, Macros & Financial Modelling</li>
-        </ul>
-      </div>
-      <div class="about-block">
-        <h3>Target roles</h3>
-        <ul>
-          <li>Operations & Process Consulting Analyst</li>
-          <li>Business Analyst — IT / Digital Transformation</li>
-          <li>Project Manager — Agile Delivery</li>
-          <li>Data Analyst — Public Sector / Industrial</li>
-        </ul>
-      </div>
-      <div class="about-block">
-        <h3>What this portfolio demonstrates</h3>
-        <p>Each project here is structured as a consulting engagement would be: a defined business problem, a documented analytical approach, and a concrete deliverable. Not claimed skills — demonstrated ones.</p>
-      </div>
-    </div>
-  </div>
+  <p class="section-eyebrow">Background</p>
+  <h2 class="section-heading">Operations depth. Consulting direction.</h2>
+  <p class="section-sub">Regulated industry experience with analytics-driven execution.</p>
 </section>
 
 <section id="projects">
-  <div class="container">
-    <p class="section-eyebrow">Work</p>
-    <h2 class="section-heading">Projects</h2>
-    <p class="section-sub">Built on real public datasets and operational experience. Each entry follows a consulting brief structure — problem, approach, output.</p>
+  <p class="section-eyebrow">Work</p>
+  <h2 class="section-heading">Projects</h2>
 
-    <div class="project-card">
-      <div>
-        <span class="proj-tag">Power BI · DAX · Government Data</span>
-        <h3 class="proj-title">India MSME Sector Health Dashboard</h3>
-        <p class="proj-problem">The diagnostic question</p>
-        <p class="proj-desc">Which states generate the most employment per MSME enterprise? Where does enterprise density not correlate with credit access? Built a four-page Power BI diagnostic integrating datasets from data.gov.in, DCMSME Annual Reports, and RBI state-wise credit statistics into a unified data model with five custom DAX measures — employment intensity, YoY growth rate, credit-gap index, state performance rank, and share of national total. Produced three actionable consulting findings on enterprise concentration, employment productivity gaps, and financing access disparities across 36 states.</p>
-        <div class="proj-meta">
-          <span>Power BI</span><span>DAX</span><span>data.gov.in</span><span>RBI open data</span><span>Multi-source modelling</span>
-        </div>
-      </div>
-      <div class="proj-status"><span class="status-pill status-progress">In progress</span></div>
-    </div>
-
-    <div class="project-card">
-      <div>
-        <span class="proj-tag">Process Mapping · Compliance · Operations</span>
-        <h3 class="proj-title">Regulated Procurement Process Diagnostic</h3>
-        <p class="proj-problem">The diagnostic question</p>
-        <p class="proj-desc">How does a nuclear-sector procurement process sustain 100% regulatory compliance across multi-vendor, multi-stage workflows? Documented and mapped the end-to-end vendor evaluation and shortlisting process across NPCIL procurement operations — identifying bottlenecks, redundant approval stages, and audit-trail gaps. Redesigned the framework resulting in a 25% reduction in cycle time and 7 consecutive clean AERB audit outcomes. Deliverable: process flow documentation, a compliance checklist matrix, and an Excel-based vendor-tracking tool.</p>
-        <div class="proj-meta">
-          <span>Process Mapping</span><span>Root Cause Analysis</span><span>Excel</span><span>Compliance Frameworks</span>
-        </div>
-      </div>
-      <div class="proj-status"><span class="status-pill status-live">Completed</span></div>
-    </div>
-
-    <div class="project-card">
-      <div>
-        <span class="proj-tag">Excel · VBA · Financial Modelling</span>
-        <h3 class="proj-title">Operations Scenario Modelling Toolkit</h3>
-        <p class="proj-problem">The diagnostic question</p>
-        <p class="proj-desc">How do you quantify the cost–benefit of a process change before committing to implementation? Built an Excel-based scenario modelling toolkit with VBA automation for data consolidation, dynamic assumption inputs, and sensitivity tables — designed to support hypothesis quantification and recommendation modelling for analyst and consulting engagement contexts. Includes three pre-built templates: procurement cost scenario model, headcount efficiency model, and project timeline risk model.</p>
-        <div class="proj-meta">
-          <span>Excel VBA</span><span>Macros</span><span>Financial Modelling</span><span>Scenario Analysis</span>
-        </div>
-      </div>
-      <div class="proj-status"><span class="status-pill status-progress">In progress</span></div>
-    </div>
-
-    <div class="project-card">
-      <div>
-        <span class="proj-tag">Agile · Scrum · PM</span>
-        <h3 class="proj-title">Agile Delivery Tracker — Sprint & Milestone Dashboard</h3>
-        <p class="proj-problem">The diagnostic question</p>
-        <p class="proj-desc">How do you give a cross-functional team and its stakeholders real-time visibility into sprint progress without manual reporting overhead? Designed a Power BI sprint-tracking dashboard integrating task completion, burn-down rate, milestone status, and risk flags — built for Scrum teams of 5–12 members. Draws on CSM certification knowledge of sprint facilitation and backlog governance.</p>
-        <div class="proj-meta">
-          <span>Power BI</span><span>Scrum</span><span>Sprint Tracking</span><span>Stakeholder Reporting</span>
-        </div>
-      </div>
-      <div class="proj-status"><span class="status-pill status-planned">Planned</span></div>
-    </div>
-
-    <div class="project-card">
-      <div>
-        <span class="proj-tag">Business Analysis · Requirements · Documentation</span>
-        <h3 class="proj-title">Branch Analytics Implementation — Indian Bank</h3>
-        <p class="proj-problem">The diagnostic question</p>
-        <p class="proj-desc">How do you move a branch network from manual MIS reporting to real-time performance visibility without disrupting daily operations? Led the deployment of a branch analytics system across the Coimbatore cluster — translating business requirements from operations staff into system specifications, managing stakeholder alignment across branch managers and IT, and delivering training for 40+ staff. Outcome: real-time dashboard adopted as the primary branch performance-tracking tool across the cluster.</p>
-        <div class="proj-meta">
-          <span>Requirements Analysis</span><span>Stakeholder Management</span><span>Change Management</span><span>Banking Operations</span>
-        </div>
-      </div>
-      <div class="proj-status"><span class="status-pill status-live">Completed</span></div>
-    </div>
-
+  <div class="project-card">
+    <div class="proj-tag">Power BI</div>
+    <h3 class="proj-title">MSME Dashboard</h3>
+    <p class="proj-desc">State-wise employment and credit analysis.</p>
   </div>
 </section>
 
 <section id="skills">
-  <div class="container">
-    <p class="section-eyebrow">Capabilities</p>
-    <h2 class="section-heading">Skills & tools</h2>
-    <p class="section-sub">Technical and methodological capabilities — each referenced in at least one project above.</p>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <p class="skill-cat">Analytics</p>
-        <ul>
-          <li>Power BI — DAX</li>
-          <li>Advanced Excel</li>
-          <li>VBA & Macros</li>
-          <li>SQL</li>
-          <li>Financial Modelling</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <p class="skill-cat">Consulting methods</p>
-        <ul>
-          <li>Root Cause Analysis</li>
-          <li>Process Mapping</li>
-          <li>Hypothesis Structuring</li>
-          <li>KPI Framework Design</li>
-          <li>Scenario Modelling</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <p class="skill-cat">Project delivery</p>
-        <ul>
-          <li>Scrum / Agile (CSM)</li>
-          <li>PMBOK Governance (CAPM)</li>
-          <li>Stakeholder Management</li>
-          <li>Risk Management</li>
-          <li>Change Management</li>
-        </ul>
-      </div>
-      <div class="skill-card">
-        <p class="skill-cat">Domain depth</p>
-        <ul>
-          <li>Nuclear Power Operations</li>
-          <li>Integrated Steel Manufacturing</li>
-          <li>Public Sector Banking</li>
-          <li>Regulatory Compliance</li>
-          <li>ERP-Integrated Workflows</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <p class="section-eyebrow">Capabilities</p>
+  <h2 class="section-heading">Skills</h2>
 </section>
 
 <section id="contact">
-  <div class="container">
-    <div class="contact-card">
-      <div>
-        <h3>Open to opportunities</h3>
-        <p>Targeting analyst and associate roles in operations consulting, IT project delivery, and business transformation at EY, KPMG, Accenture, BCG, and Cognizant. Based in Tamil Nadu / Kerala — open to Bangalore, Chennai, Kochi, and remote.</p>
-      </div>
-      <div class="contact-links">
-        <a class="contact-link" href="https://www.linkedin.com/in/b-lognath/" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          linkedin.com/in/b-lognath
-        </a>
-        <a class="contact-link" href="https://github.com/blognath" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          github.com/blognath
-        </a>
-      </div>
+  <div class="contact-card">
+    <div>
+      <h3>Open to opportunities</h3>
+      <p>Consulting and analytics roles.</p>
+    </div>
+    <div>
+      <a class="contact-link" href="#">LinkedIn</a>
+      <a class="contact-link" href="#">GitHub</a>
     </div>
   </div>
 </section>
 
 <footer>
-  B. Lognath · GoodEnoughWorks · Built with real data, real experience, and a clear target.
+  GoodEnoughWorks · Built with clarity and intent
 </footer>
 
 </body>
