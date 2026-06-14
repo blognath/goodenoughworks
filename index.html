@@ -1,68 +1,92 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <title>GoodEnoughWorks</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f7fb;
-            color: #333;
-        }
-        <nav style="background:#1e293b;padding:15px;text-align:center;">
-    <a href="#about" style="color:white;margin:15px;text-decoration:none;">About</a>
-    <a href="#projects" style="color:white;margin:15px;text-decoration:none;">Projects</a>
-    <a href="#contact" style="color:white;margin:15px;text-decoration:none;">Contact</a>
-</nav>
+```
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f7fb;
+        color: #333;
+    }
 
-        .hero {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
+    nav {
+        background: #1e293b;
+        padding: 15px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+    }
 
-        .hero h1 {
-            margin: 0;
-            font-size: 48px;
-        }
+    nav a {
+        color: white;
+        margin: 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-        .hero p {
-            font-size: 20px;
-        }
+    nav a:hover {
+        text-decoration: underline;
+    }
 
-        .container {
-            width: 85%;
-            max-width: 1000px;
-            margin: 30px auto;
-        }
+    .hero {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
 
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+    .hero h1 {
+        margin: 0;
+        font-size: 48px;
+    }
 
-        h2 {
-            color: #2563eb;
-        }
+    .hero p {
+        font-size: 20px;
+    }
 
-        ul li {
-            margin-bottom: 10px;
-        }
+    .container {
+        width: 85%;
+        max-width: 1000px;
+        margin: 30px auto;
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #666;
-        }
-    </style>
+    .card {
+        background: white;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        color: #2563eb;
+    }
+
+    ul li {
+        margin-bottom: 12px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+    }
+</style>
+```
+
 </head>
 
 <body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
 
 <div class="hero">
     <h1>GoodEnoughWorks</h1>
@@ -71,42 +95,55 @@
 
 <div class="container">
 
-    <div class="card" id="about">
+```
+<div class="card" id="about">
     <h2>About</h2>
-        <p>
-            A collection of projects focused on business analysis,
-            consulting, process improvement, project coordination,
-            and data-driven decision making.
-        </p>
-    </div>
+
+    <p>
+        GoodEnoughWorks is a collection of projects focused on
+        business analysis, consulting, process improvement,
+        project coordination, and data-driven decision making.
+    </p>
+
+    <p>
+        Areas of interest include Business Analysis, Process Excellence,
+        Agile Delivery, Project Coordination, Power BI, Excel,
+        Operations Improvement, and Consulting.
+    </p>
+</div>
+
 <div class="card" id="projects">
     <h2>Projects</h2>
 
-        <ul>
-            <li><strong>Power BI Dashboards</strong> – KPI tracking and executive reporting.</li>
+    <ul>
+        <li><strong>Power BI Executive Dashboard</strong> – KPI monitoring, trend analysis, and executive reporting.</li>
 
-            <li><strong>Business Process Mapping</strong> – Workflow analysis and improvement initiatives.</li>
+        <li><strong>Business Process Mapping Initiative</strong> – Workflow documentation, bottleneck identification, and process optimization.</li>
 
-            <li><strong>Agile Project Tracking Dashboard</strong> – Sprint and milestone monitoring.</li>
+        <li><strong>Agile Project Tracking Dashboard</strong> – Sprint tracking, milestone monitoring, and project visibility.</li>
 
-            <li><strong>Excel Executive Reporting</strong> – Automated reporting and business insights.</li>
-        </ul>
-    </div>
+        <li><strong>Excel Reporting Automation</strong> – Automated reporting, data consolidation, and management dashboards.</li>
 
+        <li><strong>Requirements Analysis Case Study</strong> – Stakeholder analysis, process flows, and business requirements documentation.</li>
+    </ul>
 </div>
+
 <div class="card" id="contact">
     <h2>Contact</h2>
 
-    <p>
-        GitHub: blognath
-    </p>
+    <p><strong>GitHub:</strong> blognath</p>
 
     <p>
-        LinkedIn: Add your LinkedIn profile URL here
+        <strong>LinkedIn:</strong>
+        Add your LinkedIn profile URL here
     </p>
 </div>
+```
+
+</div>
+
 <footer>
-    Practical solutions, data insights, and the occasional odd job.
+    Practical solutions, process improvements, data insights, and the occasional odd job.
 </footer>
 
 </body>
