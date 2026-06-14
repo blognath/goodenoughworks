@@ -46,13 +46,10 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-/* =========================
-   LAYOUT
-========================= */
 .container {
   width: min(1100px, 92%);
   margin: auto;
@@ -62,17 +59,8 @@ a {
   padding: 72px 0;
 }
 
-.grid {
-  display: grid;
-  gap: 16px;
-}
-
-.stack > * + * {
-  margin-top: 14px;
-}
-
 /* =========================
-   NAVIGATION
+   NAV
 ========================= */
 .nav {
   position: sticky;
@@ -83,7 +71,7 @@ a {
   border-bottom: 1px solid var(--border);
 }
 
-.nav__inner {
+.nav__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,17 +83,22 @@ a {
   font-size: 18px;
 }
 
-.nav__brand span {
+.nav__brand-accent {
   color: var(--primary);
 }
 
-.nav__links a {
-  margin-left: 18px;
+.nav__menu {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+}
+
+.nav__link {
   font-size: 13px;
   color: var(--muted);
 }
 
-.nav__links a:hover {
+.nav__link:hover {
   color: var(--primary);
 }
 
@@ -118,7 +111,13 @@ a {
   border-bottom: 4px solid var(--primary);
 }
 
-.hero__eyebrow {
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero__badge {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: .12em;
@@ -132,19 +131,19 @@ a {
   line-height: 1.15;
 }
 
-.hero__title em {
+.hero__highlight {
   color: var(--primary-dark);
 }
 
-.hero__subtitle {
+.hero__description {
   color: var(--muted);
   max-width: 650px;
 }
 
 /* =========================
-   STATS
+   METRICS
 ========================= */
-.stats {
+.metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 28px;
@@ -155,30 +154,34 @@ a {
   box-shadow: var(--shadow);
 }
 
-.stat {
+.metric {
   padding: 16px;
   border-right: 1px solid var(--border);
 }
 
-.stat:last-child {
+.metric:last-child {
   border-right: none;
 }
 
-.stat__value {
+.metric__value {
   font-family: var(--serif);
   font-size: 28px;
   color: var(--primary);
 }
 
-.stat__label {
+.metric__label {
   font-size: 11px;
   color: var(--muted);
 }
 
 /* =========================
-   TYPOGRAPHY
+   SECTION HEADER
 ========================= */
-.kicker {
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header__kicker {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .14em;
@@ -186,18 +189,35 @@ a {
   font-weight: 600;
 }
 
-.section-title {
+.section-header__title {
   font-family: var(--serif);
   font-size: 32px;
 }
 
-.section-subtitle {
+.section-header__subtitle {
   color: var(--muted);
   max-width: 720px;
 }
 
 /* =========================
-   CARDS
+   GRIDS
+========================= */
+.about__grid,
+.skills__grid {
+  display: grid;
+  gap: 16px;
+}
+
+.about__grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.skills__grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* =========================
+   CARD SYSTEM
 ========================= */
 .card {
   background: var(--surface);
@@ -214,16 +234,9 @@ a {
 }
 
 /* =========================
-   ABOUT
+   PROJECT
 ========================= */
-.about-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-/* =========================
-   PROJECTS
-========================= */
-.project-tag {
+.project__tag {
   display: inline-block;
   font-size: 10px;
   font-weight: 700;
@@ -231,35 +244,44 @@ a {
   border-radius: 999px;
   background: #fff1e0;
   color: var(--primary);
+  margin-bottom: 10px;
 }
 
-.project-title {
+.project__title {
   font-family: var(--serif);
   font-size: 20px;
+  margin-bottom: 8px;
 }
 
-.project-meta span {
-  display: inline-block;
+.project__description {
+  color: var(--muted);
+}
+
+.project__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.project__meta li {
   font-size: 11px;
   border: 1px solid var(--border);
   padding: 3px 8px;
   border-radius: 4px;
-  margin-right: 6px;
-  margin-top: 6px;
+  color: var(--muted);
 }
 
 /* =========================
    SKILLS
 ========================= */
-.skills-grid {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.skill-title {
-  font-size: 11px;
+.skill__title {
+  font-size: 12px;
   font-weight: 700;
   color: var(--primary);
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .card ul {
@@ -280,6 +302,10 @@ a {
    CONTACT
 ========================= */
 .contact {
+  padding: 72px 0;
+}
+
+.contact__container {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
@@ -289,24 +315,30 @@ a {
   color: white;
 }
 
-.contact a {
+.contact__link {
   display: block;
   margin-top: 10px;
   padding: 10px 14px;
   background: rgba(255,255,255,.15);
   border-radius: 8px;
+  color: white;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-  .stats {
+  .metrics {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .contact {
+  .contact__container {
     grid-template-columns: 1fr;
+  }
+
+  .nav__menu {
+    flex-wrap: wrap;
+    gap: 12px;
   }
 }
 </style>
@@ -314,64 +346,84 @@ a {
 
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="container nav__inner">
-    <div class="nav__brand">Good<span>Enough</span>Works</div>
-    <div class="nav__links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+<!-- ================= NAV ================= -->
+<header class="header">
+
+  <nav class="nav">
+    <div class="container nav__container">
+
+      <div class="nav__brand">
+        Good<span class="nav__brand-accent">Enough</span>Works
+      </div>
+
+      <ul class="nav__menu">
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#skills" class="nav__link">Skills</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="container stack">
-    <p class="hero__eyebrow">Analytics & Operations Portfolio</p>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container hero__container">
 
-    <h1 class="hero__title">
-      Structured diagnostics.<br>
-      <em>Evidence-led outcomes.</em>
-    </h1>
+      <p class="hero__badge">Analytics & Operations Portfolio</p>
 
-    <p class="hero__subtitle">
-      Operations professional across nuclear, steel, and banking domains.
-    </p>
+      <h1 class="hero__title">
+        Structured diagnostics.<br>
+        <span class="hero__highlight">Evidence-led outcomes.</span>
+      </h1>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="stat__value">7×</div>
-        <div class="stat__label">Clean audits</div>
+      <p class="hero__description">
+        Operations professional across nuclear, steel, and banking domains.
+      </p>
+
+      <div class="metrics">
+
+        <div class="metric">
+          <div class="metric__value">7×</div>
+          <div class="metric__label">Clean audits</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric__value">25%</div>
+          <div class="metric__label">Cycle reduction</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric__value">3</div>
+          <div class="metric__label">Sectors</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric__value">₹5Cr+</div>
+          <div class="metric__label">Portfolio</div>
+        </div>
+
       </div>
-      <div class="stat">
-        <div class="stat__value">25%</div>
-        <div class="stat__label">Cycle reduction</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value">3</div>
-        <div class="stat__label">Sectors</div>
-      </div>
-      <div class="stat">
-        <div class="stat__value">₹5Cr+</div>
-        <div class="stat__label">Portfolio</div>
-      </div>
+
     </div>
-  </div>
+  </section>
+
 </header>
 
 <main>
 
 <!-- ABOUT -->
 <section id="about" class="section">
-  <div class="container stack">
-    <p class="kicker">Background</p>
-    <h2 class="section-title">Operations depth. Consulting direction.</h2>
-    <p class="section-subtitle">Experience across regulated industries.</p>
+  <div class="container">
 
-    <div class="grid about-grid">
+    <div class="section-header">
+      <p class="section-header__kicker">Background</p>
+      <h2 class="section-header__title">Operations depth. Consulting direction.</h2>
+      <p class="section-header__subtitle">Experience across regulated industries.</p>
+    </div>
+
+    <div class="about__grid">
+
       <div class="card">
         <h3>Experience</h3>
         <p>NPCIL, SAIL, Indian Bank</p>
@@ -385,39 +437,55 @@ a {
           <li>Power BI</li>
         </ul>
       </div>
+
     </div>
+
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROJECT -->
 <section id="projects" class="section">
-  <div class="container stack">
-    <p class="kicker">Work</p>
-    <h2 class="section-title">Projects</h2>
+  <div class="container">
 
-    <article class="card">
-      <span class="project-tag">Power BI</span>
-      <h3 class="project-title">MSME Dashboard</h3>
-      <p class="section-subtitle">Employment and credit analysis across states.</p>
+    <div class="section-header">
+      <p class="section-header__kicker">Work</p>
+      <h2 class="section-header__title">Projects</h2>
+    </div>
 
-      <div class="project-meta">
-        <span>DAX</span>
-        <span>RBI Data</span>
-        <span>Analytics</span>
-      </div>
-    </article>
+    <div class="card">
+
+      <div class="project__tag">Power BI</div>
+
+      <h3 class="project__title">MSME Dashboard</h3>
+
+      <p class="project__description">
+        Employment and credit analysis across states.
+      </p>
+
+      <ul class="project__meta">
+        <li>DAX</li>
+        <li>RBI Data</li>
+        <li>Analytics</li>
+      </ul>
+
+    </div>
+
   </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="section">
-  <div class="container stack">
-    <p class="kicker">Capabilities</p>
-    <h2 class="section-title">Skills</h2>
+  <div class="container">
 
-    <div class="grid skills-grid">
+    <div class="section-header">
+      <p class="section-header__kicker">Capabilities</p>
+      <h2 class="section-header__title">Skills</h2>
+    </div>
+
+    <div class="skills__grid">
+
       <div class="card">
-        <div class="skill-title">Analytics</div>
+        <div class="skill__title">Analytics</div>
         <ul>
           <li>Power BI</li>
           <li>Excel</li>
@@ -426,29 +494,33 @@ a {
       </div>
 
       <div class="card">
-        <div class="skill-title">Consulting</div>
+        <div class="skill__title">Consulting</div>
         <ul>
           <li>Process Mapping</li>
           <li>RCA</li>
           <li>KPI Design</li>
         </ul>
       </div>
+
     </div>
+
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container contact">
+<section id="contact" class="section contact">
+  <div class="container contact__container">
+
     <div>
       <h2>Open to opportunities</h2>
       <p>Consulting and analytics roles.</p>
     </div>
 
     <div>
-      <a href="#">LinkedIn</a>
-      <a href="#">GitHub</a>
+      <a href="#" class="contact__link">LinkedIn</a>
+      <a href="#" class="contact__link">GitHub</a>
     </div>
+
   </div>
 </section>
 
