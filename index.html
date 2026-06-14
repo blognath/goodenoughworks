@@ -5,274 +5,305 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>B. Lognath — Analytics & Operations Portfolio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --orange: #f97316;
-      --amber: #f59e0b;
-      --yellow: #facc15;
+      --orange:#f97316;
+      --amber:#f59e0b;
+      --yellow:#facc15;
 
-      --bg: #fff8ec;
-      --card: #ffffff;
-      --text: #3b2f2f;
-      --text-2: #6b5b4f;
+      --bg:#fff8ec;
+      --card:#ffffff;
 
-      --rule: #f3dcc3;
+      --text:#3b2f2f;
+      --text-2:#6b5b4f;
 
-      --serif: 'DM Serif Display', Georgia, serif;
-      --sans: 'Inter', system-ui, sans-serif;
+      --rule:#f3dcc3;
 
-      --r-sm: 6px;
-      --r-md: 10px;
-      --r-lg: 16px;
+      --serif:'DM Serif Display', Georgia, serif;
+      --sans:'Inter', system-ui, sans-serif;
 
-      --shadow: 0 6px 18px rgba(249,115,22,.08),
-                0 18px 40px rgba(245,158,11,.10);
+      --r-md:10px;
+      --r-lg:16px;
+
+      --shadow:0 6px 18px rgba(249,115,22,.08);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      font-size: 15px;
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:var(--sans);
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      font-size:15px;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a{text-decoration:none;color:inherit;}
+    section{padding:64px 5%;}
 
     /* NAV */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 56px;
-      align-items: center;
+    nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.9);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--rule);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 5%;
+      height:56px;
     }
 
-    .nav-brand {
-      font-family: var(--serif);
-      font-size: 17px;
+    .nav-brand{
+      font-family:var(--serif);
+      font-size:18px;
     }
-    .nav-brand span { color: var(--orange); }
+    .nav-brand span{color:var(--orange);}
 
-    .nav-links a {
-      margin-left: 20px;
-      font-size: 13px;
-      color: var(--text-2);
+    .nav-links a{
+      margin-left:20px;
+      font-size:13px;
+      color:var(--text-2);
     }
-    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover{color:var(--orange);}
 
     /* HERO */
-    .hero {
-      padding: 72px 5% 56px;
-      background: linear-gradient(135deg,#fff3d6,#ffe1b3,#ffd27d);
-      border-bottom: 4px solid var(--orange);
+    .hero{
+      padding:72px 5% 56px;
+      background:linear-gradient(135deg,#fff3d6,#ffe1b3,#ffd27d);
+      border-bottom:4px solid var(--orange);
     }
 
-    .hero-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: 11px;
-      color: var(--orange);
-      font-weight: 600;
-      margin-bottom: 18px;
+    .hero-eyebrow{
+      color:var(--orange);
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      margin-bottom:16px;
+      font-weight:600;
     }
 
-    .hero h1 {
-      font-family: var(--serif);
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1.15;
-      margin-bottom: 16px;
+    .hero h1{
+      font-family:var(--serif);
+      font-size:clamp(34px,5vw,56px);
+      line-height:1.15;
+      margin-bottom:16px;
     }
 
-    .hero h1 em { color: #b45309; }
+    .hero h1 em{color:#b45309;}
 
-    .hero-sub {
-      color: var(--text-2);
-      max-width: 600px;
-      margin-bottom: 32px;
+    .hero-sub{
+      color:var(--text-2);
+      max-width:600px;
+      margin-bottom:30px;
     }
 
     /* DIAG BAR */
-    .diag-bar {
-      display: flex;
-      background: white;
-      border: 1px solid var(--rule);
-      border-radius: var(--r-md);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      max-width: 700px;
+    .diag-bar{
+      display:flex;
+      background:#fff;
+      border:1px solid var(--rule);
+      border-radius:var(--r-md);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      max-width:700px;
     }
 
-    .diag-item {
-      flex: 1;
-      padding: 16px;
-      border-right: 1px solid var(--rule);
+    .diag-item{
+      flex:1;
+      padding:16px;
+      border-right:1px solid var(--rule);
     }
-    .diag-item:last-child { border-right: none; }
+    .diag-item:last-child{border:none;}
 
-    .diag-num {
-      font-family: var(--serif);
-      font-size: 28px;
-      color: var(--orange);
+    .diag-num{
+      font-family:var(--serif);
+      font-size:28px;
+      color:var(--orange);
     }
-    .diag-num span { color: var(--amber); }
+    .diag-num span{color:var(--amber);}
 
-    .diag-label {
-      font-size: 11px;
-      color: var(--text-2);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 64px 5%;
+    .diag-label{
+      font-size:11px;
+      color:var(--text-2);
     }
 
-    .section-eyebrow {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      color: var(--orange);
-      margin-bottom: 10px;
+    /* SECTION */
+    .section-eyebrow{
+      font-size:10px;
+      text-transform:uppercase;
+      color:var(--orange);
+      letter-spacing:.14em;
+      margin-bottom:10px;
     }
 
-    .section-heading {
-      font-family: var(--serif);
-      font-size: 32px;
-      margin-bottom: 10px;
+    .section-heading{
+      font-family:var(--serif);
+      font-size:32px;
+      margin-bottom:8px;
     }
 
-    .section-sub {
-      color: var(--text-2);
-      max-width: 600px;
-      margin-bottom: 28px;
+    .section-sub{
+      color:var(--text-2);
+      max-width:600px;
+      margin-bottom:30px;
     }
 
-    /* CARDS */
-    .about-grid,
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 16px;
+    /* ABOUT */
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px;
     }
 
-    .about-block,
-    .skill-card,
-    .project-card {
-      background: white;
-      border: 1px solid var(--rule);
-      border-radius: var(--r-lg);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      transition: .2s;
+    .about-block{
+      background:#fff;
+      border:1px solid var(--rule);
+      border-radius:var(--r-lg);
+      padding:20px;
+      box-shadow:var(--shadow);
     }
 
-    .project-card {
-      margin-bottom: 16px;
+    .about-block h3{
+      font-size:12px;
+      text-transform:uppercase;
+      color:var(--orange);
+      margin-bottom:10px;
     }
 
-    .project-card:hover,
-    .about-block:hover,
-    .skill-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--orange);
+    .about-block p,.about-block li{
+      font-size:14px;
+      color:var(--text-2);
+      line-height:1.7;
     }
 
-    .proj-tag {
-      display: inline-block;
-      background: #fff1db;
-      color: var(--orange);
-      font-size: 10px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
+    .about-block ul{padding-left:16px;}
+
+    /* PROJECTS */
+    .project-card{
+      background:#fff;
+      border:1px solid var(--rule);
+      border-radius:var(--r-lg);
+      padding:24px;
+      margin-bottom:16px;
+      box-shadow:var(--shadow);
+      transition:.2s;
     }
 
-    .proj-title {
-      font-family: var(--serif);
-      font-size: 20px;
-      margin-bottom: 6px;
+    .project-card:hover{
+      transform:translateY(-3px);
+      border-color:var(--orange);
     }
 
-    .proj-desc {
-      color: var(--text-2);
-      font-size: 14px;
-      margin-bottom: 12px;
+    .proj-tag{
+      display:inline-block;
+      background:#fff1db;
+      color:var(--orange);
+      font-size:10px;
+      font-weight:700;
+      padding:4px 10px;
+      border-radius:999px;
+      margin-bottom:10px;
     }
 
-    .proj-meta span {
-      display: inline-block;
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      border: 1px solid var(--rule);
-      margin-right: 6px;
-      margin-top: 6px;
+    .proj-title{
+      font-family:var(--serif);
+      font-size:20px;
+      margin-bottom:6px;
+    }
+
+    .proj-problem{
+      font-size:12px;
+      color:#9a7b5a;
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+
+    .proj-desc{
+      color:var(--text-2);
+      font-size:14px;
+      line-height:1.7;
+      margin-bottom:12px;
+    }
+
+    .proj-meta span{
+      font-size:11px;
+      padding:3px 8px;
+      border:1px solid var(--rule);
+      border-radius:4px;
+      margin-right:6px;
+      display:inline-block;
+      margin-top:6px;
     }
 
     /* SKILLS */
-    .skill-cat {
-      color: var(--orange);
-      font-weight: 700;
-      font-size: 11px;
-      margin-bottom: 10px;
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:16px;
     }
 
-    .skill-card li {
-      list-style: none;
-      padding: 4px 0;
-      border-bottom: 1px solid var(--rule);
-      font-size: 13px;
-      color: var(--text-2);
+    .skill-card{
+      background:#fff;
+      border:1px solid var(--rule);
+      border-radius:var(--r-lg);
+      padding:18px;
+      box-shadow:var(--shadow);
     }
-    .skill-card li:last-child { border-bottom: none; }
+
+    .skill-cat{
+      color:var(--orange);
+      font-size:11px;
+      font-weight:700;
+      margin-bottom:10px;
+      text-transform:uppercase;
+    }
+
+    .skill-card li{
+      list-style:none;
+      font-size:13px;
+      padding:4px 0;
+      border-bottom:1px solid var(--rule);
+      color:var(--text-2);
+    }
+
+    .skill-card li:last-child{border:none;}
 
     /* CONTACT */
-    .contact-card {
-      background: linear-gradient(135deg,var(--orange),var(--amber));
-      padding: 40px;
-      border-radius: var(--r-lg);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
+    .contact-card{
+      background:linear-gradient(135deg,var(--orange),var(--amber));
+      color:white;
+      padding:40px;
+      border-radius:var(--r-lg);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
     }
 
-    .contact-card p { opacity: .9; }
+    .contact-card p{opacity:.9;}
 
-    .contact-link {
-      display: block;
-      background: rgba(255,255,255,.15);
-      padding: 10px 14px;
-      border-radius: var(--r-sm);
-      margin-top: 10px;
-      color: white;
+    .contact-link{
+      display:block;
+      background:rgba(255,255,255,.15);
+      padding:10px 14px;
+      border-radius:6px;
+      margin-top:10px;
+      color:white;
     }
 
-    footer {
-      text-align: center;
-      padding: 24px;
-      font-size: 12px;
-      background: #fff3dd;
-      color: var(--text-2);
+    footer{
+      text-align:center;
+      padding:24px;
+      font-size:12px;
+      background:#fff3dd;
+      color:var(--text-2);
     }
 
-    @media (max-width: 700px) {
-      .diag-bar,
-      .contact-card {
-        flex-direction: column;
-      }
+    @media(max-width:700px){
+      .diag-bar,.contact-card{flex-direction:column;}
     }
   </style>
 </head>
@@ -293,21 +324,49 @@
   <p class="hero-eyebrow">Analytics & Operations Portfolio</p>
   <h1>Structured diagnostics.<br><em>Evidence-led outcomes.</em></h1>
   <p class="hero-sub">
-    Operations and analytics professional across nuclear, steel, and banking domains.
+    B. Lognath — Operations and analytics professional across nuclear, steel, and banking domains.
   </p>
 
   <div class="diag-bar">
-    <div class="diag-item"><div class="diag-num">7×</div><div class="diag-label">Clean audits</div></div>
-    <div class="diag-item"><div class="diag-num">25%</div><div class="diag-label">Cycle time reduction</div></div>
-    <div class="diag-item"><div class="diag-num">3</div><div class="diag-label">Regulated sectors</div></div>
-    <div class="diag-item"><div class="diag-num">₹5Cr+</div><div class="diag-label">Managed portfolio</div></div>
+    <div class="diag-item">
+      <div class="diag-num">7×</div>
+      <div class="diag-label">Clean audits</div>
+    </div>
+    <div class="diag-item">
+      <div class="diag-num">25%</div>
+      <div class="diag-label">Cycle time reduction</div>
+    </div>
+    <div class="diag-item">
+      <div class="diag-num">3</div>
+      <div class="diag-label">Regulated sectors</div>
+    </div>
+    <div class="diag-item">
+      <div class="diag-num">₹5Cr+</div>
+      <div class="diag-label">Managed portfolio</div>
+    </div>
   </div>
 </header>
 
 <section id="about">
   <p class="section-eyebrow">Background</p>
   <h2 class="section-heading">Operations depth. Consulting direction.</h2>
-  <p class="section-sub">Regulated industry experience with analytics-driven execution.</p>
+
+  <div class="about-grid">
+    <div class="about-block">
+      <h3>Professional background</h3>
+      <p>NPCIL, SAIL, Indian Bank experience in regulated operations and process redesign.</p>
+    </div>
+
+    <div class="about-block">
+      <h3>Certifications</h3>
+      <ul>
+        <li>CSM</li>
+        <li>CAPM</li>
+        <li>Power BI</li>
+        <li>Advanced Excel</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section id="projects">
@@ -315,15 +374,41 @@
   <h2 class="section-heading">Projects</h2>
 
   <div class="project-card">
-    <div class="proj-tag">Power BI</div>
+    <span class="proj-tag">Power BI</span>
     <h3 class="proj-title">MSME Dashboard</h3>
     <p class="proj-desc">State-wise employment and credit analysis.</p>
+  </div>
+
+  <div class="project-card">
+    <span class="proj-tag">Operations</span>
+    <h3 class="proj-title">Procurement Diagnostic</h3>
+    <p class="proj-desc">Cycle time reduction and compliance optimization.</p>
   </div>
 </section>
 
 <section id="skills">
   <p class="section-eyebrow">Capabilities</p>
   <h2 class="section-heading">Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <p class="skill-cat">Analytics</p>
+      <ul>
+        <li>Power BI</li>
+        <li>Excel</li>
+        <li>SQL</li>
+      </ul>
+    </div>
+
+    <div class="skill-card">
+      <p class="skill-cat">Consulting</p>
+      <ul>
+        <li>Process Mapping</li>
+        <li>RCA</li>
+        <li>KPI Design</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
@@ -332,6 +417,7 @@
       <h3>Open to opportunities</h3>
       <p>Consulting and analytics roles.</p>
     </div>
+
     <div>
       <a class="contact-link" href="#">LinkedIn</a>
       <a class="contact-link" href="#">GitHub</a>
