@@ -3,14 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="GoodEnoughWorks — Projects, analysis, process improvement, and useful things." />
-<meta property="og:title" content="GoodEnoughWorks" />
-<meta property="og:description" content="Projects, questions, dashboards, process maps, and useful things." />
+
+<meta name="description"
+content="GoodEnoughWorks — Analytics, operations, process improvement, and practical problem-solving." />
+
+<meta property="og:title"
+content="GoodEnoughWorks" />
+
+<meta property="og:description"
+content="Built, explored, improved." />
+
 <title>GoodEnoughWorks</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 <style>
+
 :root {
   --primary: #f97316;
   --primary-dark: #ea580c;
@@ -25,11 +33,34 @@
   --sans: "Inter", system-ui, sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; }
-a { text-decoration: none; color: inherit; }
-.container { width: min(1100px, 92%); margin: auto; }
-.section { padding: 72px 0; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+/* NAVIGATION */
 
 .nav {
   position: sticky;
@@ -72,9 +103,16 @@ a { text-decoration: none; color: inherit; }
   color: var(--primary);
 }
 
+/* HERO */
+
 .hero {
   padding: 84px 0 56px;
-  background: linear-gradient(135deg,#fff1dc,#ffe3b3,#ffd28a);
+  background: linear-gradient(
+    135deg,
+    #fff1dc,
+    #ffe3b3,
+    #ffd28a
+  );
   border-bottom: 4px solid var(--primary);
 }
 
@@ -94,7 +132,7 @@ a { text-decoration: none; color: inherit; }
 
 .hero__title {
   font-family: var(--serif);
-  font-size: clamp(34px, 5vw, 56px);
+  font-size: clamp(34px,5vw,56px);
   line-height: 1.15;
 }
 
@@ -107,6 +145,8 @@ a { text-decoration: none; color: inherit; }
   max-width: 650px;
   font-size: 15px;
 }
+
+/* METRICS */
 
 .metrics {
   display: grid;
@@ -138,6 +178,8 @@ a { text-decoration: none; color: inherit; }
   font-size: 11px;
   color: var(--muted);
 }
+
+/* SECTIONS */
 
 .section-header {
   margin-bottom: 28px;
@@ -182,12 +224,20 @@ a { text-decoration: none; color: inherit; }
   gap: 16px;
 }
 
+/* CARDS */
+
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 20px;
   box-shadow: var(--shadow);
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
 }
 
 .card h3 {
@@ -274,7 +324,11 @@ a { text-decoration: none; color: inherit; }
   gap: 20px;
   padding: 40px;
   border-radius: var(--radius);
-  background: linear-gradient(135deg,var(--primary),var(--primary-dark));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
   color: white;
   align-items: center;
 }
@@ -327,7 +381,8 @@ a { text-decoration: none; color: inherit; }
   border-top: 1px solid var(--border);
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
+
   .metrics {
     grid-template-columns: repeat(2,1fr);
   }
@@ -345,11 +400,13 @@ a { text-decoration: none; color: inherit; }
   }
 }
 
-@media (max-width:480px) {
+@media (max-width: 480px) {
+
   .nav__menu {
     display: none;
   }
 }
+
 </style>
 </head>
 
@@ -359,6 +416,7 @@ a { text-decoration: none; color: inherit; }
 
 <nav class="nav">
   <div class="container nav__container">
+
     <div class="nav__brand">
       Good<span class="nav__brand-accent">Enough</span>Works
     </div>
@@ -369,60 +427,63 @@ a { text-decoration: none; color: inherit; }
       <li><a href="#skills" class="nav__link">Skills</a></li>
       <li><a href="#contact" class="nav__link">About</a></li>
     </ul>
+
   </div>
 </nav>
 
 <section class="hero">
+
   <div class="container hero__container">
 
     <p class="hero__badge">
-      Projects • Analysis • Things That Seemed Worth Building
+      Analytics • Operations • Continuous Improvement
     </p>
 
     <h1 class="hero__title">
-      Good enough to ship.<br>
+      Built, explored,<br>
       <span class="hero__highlight">
-        Interesting enough to share.
+        improved.
       </span>
     </h1>
 
     <p class="hero__description">
-      A home for projects, analysis, process improvements, and occasional rabbit holes. Part portfolio, part notebook, part ongoing attempt to make sense of how things work.
+      A collection of projects, process improvements, dashboards, and investigations into how things work. Part portfolio, part notebook, part workshop.
     </p>
 
-    <div class="metrics" role="list">
+    <div class="metrics">
 
       <div class="metric">
         <div class="metric__value">7×</div>
         <div class="metric__label">
-          Consecutive audits supported
+          Clean audits supported
         </div>
       </div>
 
       <div class="metric">
         <div class="metric__value">25%</div>
         <div class="metric__label">
-          Process improvements delivered
+          Cycle-time reduction
         </div>
       </div>
 
       <div class="metric">
         <div class="metric__value">3</div>
         <div class="metric__label">
-          Industries explored
+          Domains worked in
         </div>
       </div>
 
       <div class="metric">
         <div class="metric__value">₹5Cr+</div>
         <div class="metric__label">
-          Assets administered
+          Portfolio managed
         </div>
       </div>
 
     </div>
 
   </div>
+
 </section>
 
 </header>
@@ -436,7 +497,7 @@ a { text-decoration: none; color: inherit; }
       <p class="section-header__kicker">Work</p>
       <h2 class="section-header__title">Projects</h2>
       <p class="section-header__subtitle">
-        A collection of dashboards, process improvements, and investigations into questions that seemed worth exploring.
+        Projects focused on understanding problems, improving processes, and turning information into decisions.
       </p>
     </div>
 
@@ -450,7 +511,7 @@ a { text-decoration: none; color: inherit; }
         </h3>
 
         <p class="project__description">
-          Started with a simple question: how evenly is credit reaching India's MSME sector? Built from RBI datasets to explore employment, lending patterns, and the stories hiding inside spreadsheets.
+          Started with a simple question: how evenly is credit reaching India's MSME sector? Built from RBI datasets to explore employment trends, lending patterns, and the stories hidden inside spreadsheets.
         </p>
 
         <ul class="project__meta">
@@ -469,7 +530,7 @@ a { text-decoration: none; color: inherit; }
         </h3>
 
         <p class="project__description">
-          Not every improvement needs a grand transformation programme. Sometimes it just means building clearer tracking systems so teams spend less time searching and more time doing.
+          Not every improvement needs a grand transformation programme. Sometimes it simply means creating clearer tracking systems so teams spend less time searching and more time executing.
         </p>
 
         <ul class="project__meta">
@@ -488,7 +549,7 @@ a { text-decoration: none; color: inherit; }
         </h3>
 
         <p class="project__description">
-          A practical exercise in finding small bottlenecks that quietly slow everything down. The goal wasn't perfection—just making the process work a little better than it did yesterday.
+          A practical exercise in identifying small bottlenecks that quietly slow everything down. The objective wasn't perfection—it was helping the process work better than it did yesterday.
         </p>
 
         <ul class="project__meta">
@@ -511,7 +572,7 @@ a { text-decoration: none; color: inherit; }
       <p class="section-header__kicker">Credentials</p>
       <h2 class="section-header__title">Certifications</h2>
       <p class="section-header__subtitle">
-        Helpful frameworks. Useful vocabulary. Occasionally even good advice.
+        Frameworks that help turn ideas into structured execution.
       </p>
     </div>
 
@@ -520,21 +581,21 @@ a { text-decoration: none; color: inherit; }
       <div class="card">
         <h3>CSM — Certified ScrumMaster</h3>
         <p>
-          Scrum Alliance. Agile delivery, iterative thinking, and helping teams move forward without unnecessary complexity.
+          Scrum Alliance. Agile delivery, iterative planning, facilitation, and helping teams move forward without unnecessary complexity.
         </p>
       </div>
 
       <div class="card">
         <h3>CAPM — Project Management</h3>
         <p>
-          PMI. A foundation in project planning, risk management, stakeholder engagement, and structured execution.
+          PMI. Foundation in project planning, risk management, stakeholder engagement, scheduling, and structured execution.
         </p>
       </div>
 
       <div class="card">
         <h3>Power BI — Data Visualisation</h3>
         <p>
-          Microsoft. Turning rows, columns, and spreadsheets into dashboards people can actually use.
+          Microsoft. Turning spreadsheets, datasets, and business information into dashboards that support decision-making.
         </p>
       </div>
 
@@ -551,7 +612,7 @@ a { text-decoration: none; color: inherit; }
       <p class="section-header__kicker">Capabilities</p>
       <h2 class="section-header__title">Skills</h2>
       <p class="section-header__subtitle">
-        Tools, methods, and a few things that keep proving useful.
+        Methods, tools, and approaches used across projects and operations.
       </p>
     </div>
 
@@ -613,19 +674,23 @@ a { text-decoration: none; color: inherit; }
         </h2>
 
         <p class="contact__subtext">
-          GoodEnoughWorks is where I collect projects, observations, dashboards, process maps, and the occasional over-engineered spreadsheet. Some things here solved real problems. Some started as questions. Most taught me something useful.
+          GoodEnoughWorks is where I document projects, process improvements, dashboards, and lessons learned along the way. Each project reflects an attempt to understand a problem, improve a process, or make better decisions using data.
         </p>
       </div>
 
       <div class="contact__links">
 
+        <!-- Replace YOUR-LINKEDIN-ID with your actual LinkedIn profile URL slug -->
         <a class="contact__link"
            href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID"
            target="_blank"
-           rel="noopener noreferrer">
+           rel="noopener noreferrer"
+           aria-label="LinkedIn profile">
 
-          <svg width="18" height="18" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor"
+          <svg width="18" height="18"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
                stroke-width="2"
                stroke-linecap="round"
                stroke-linejoin="round">
@@ -637,15 +702,19 @@ a { text-decoration: none; color: inherit; }
           </svg>
 
           LinkedIn
+
         </a>
 
         <a class="contact__link"
            href="https://github.com/blognath"
            target="_blank"
-           rel="noopener noreferrer">
+           rel="noopener noreferrer"
+           aria-label="GitHub profile">
 
-          <svg width="18" height="18" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor"
+          <svg width="18" height="18"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
                stroke-width="2"
                stroke-linecap="round"
                stroke-linejoin="round">
@@ -655,6 +724,7 @@ a { text-decoration: none; color: inherit; }
           </svg>
 
           GitHub
+
         </a>
 
       </div>
