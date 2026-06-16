@@ -3,21 +3,32 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="author" content="B. Lognath" />
 
 <meta name="description"
 content="GoodEnoughWorks — Analytics, operations, process improvement, and practical problem-solving." />
 
-<meta property="og:title"
-content="GoodEnoughWorks" />
-
-<meta property="og:description"
-content="Built, explored, improved." />
+<meta property="og:title"        content="GoodEnoughWorks" />
+<meta property="og:description"  content="Built, explored, improved." />
+<meta property="og:type"         content="website" />
+<meta property="og:url"          content="https://blognath.github.io/goodenoughworks/" />
+<meta property="og:image"
+  content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%23fff7ed'/%3E%3Crect x='0' y='590' width='1200' height='40' fill='%23f97316'/%3E%3Ctext x='80' y='260' font-family='Georgia%2Cserif' font-size='72' fill='%232f2a26'%3EGoodEnough%3Ctspan fill='%23f97316'%3EWorks%3C/tspan%3E%3C/text%3E%3Ctext x='80' y='340' font-family='Georgia%2Cserif' font-size='36' fill='%236b625a'%3EBuilt%2C explored%2C improved.%3C/text%3E%3Ctext x='80' y='410' font-family='Arial%2Csans-serif' font-size='22' fill='%23f97316'%3EAnalytics %E2%80%A2 Operations %E2%80%A2 Curiosity-driven improvement%3C/text%3E%3C/svg%3E" />
+<meta property="og:image:width"  content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card"        content="summary_large_image" />
+<meta name="twitter:title"       content="GoodEnoughWorks" />
+<meta name="twitter:description" content="Built, explored, improved." />
 
 <title>GoodEnoughWorks</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
 <style>
+
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   --primary: #f97316;
@@ -60,12 +71,14 @@ a {
   padding: 72px 0;
 }
 
-/* NAVIGATION */
+/* =====================
+   NAVIGATION
+===================== */
 
 .nav {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   background: rgba(255,255,255,.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -81,6 +94,7 @@ a {
 .nav__brand {
   font-family: var(--serif);
   font-size: 18px;
+  flex-shrink: 0;
 }
 
 .nav__brand-accent {
@@ -97,22 +111,121 @@ a {
   font-size: 13px;
   color: var(--muted);
   transition: color .15s;
+  position: relative;
+  padding-bottom: 2px;
 }
 
 .nav__link:hover {
   color: var(--primary);
 }
 
-/* HERO */
+/* Active nav indicator */
+.nav__link.is-active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.nav__link.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Hamburger — hidden on desktop */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nav__hamburger span {
+  display: block;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+/* Mobile drawer */
+.nav__drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+}
+
+.nav__drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(47,42,38,.4);
+  backdrop-filter: blur(2px);
+}
+
+.nav__drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 240px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px;
+  gap: 6px;
+  box-shadow: -8px 0 24px rgba(0,0,0,.08);
+}
+
+.nav__drawer-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--muted);
+  cursor: pointer;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.nav__drawer-link {
+  font-size: 15px;
+  color: var(--text);
+  font-weight: 500;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background .15s, color .15s;
+}
+
+.nav__drawer-link:hover,
+.nav__drawer-link.is-active {
+  background: #fff1e0;
+  color: var(--primary);
+}
+
+.nav__drawer.is-open {
+  display: block;
+}
+
+/* =====================
+   HERO
+===================== */
 
 .hero {
   padding: 84px 0 56px;
-  background: linear-gradient(
-    135deg,
-    #fff1dc,
-    #ffe3b3,
-    #ffd28a
-  );
+  background: linear-gradient(135deg, #fff1dc, #ffe3b3, #ffd28a);
   border-bottom: 4px solid var(--primary);
 }
 
@@ -146,7 +259,9 @@ a {
   font-size: 15px;
 }
 
-/* METRICS */
+/* =====================
+   METRICS
+===================== */
 
 .metrics {
   display: grid;
@@ -164,6 +279,10 @@ a {
   border-right: 1px solid var(--border);
 }
 
+.metric:last-child {
+  border-right: none;
+}
+
 .metric__value {
   font-family: var(--serif);
   font-size: 22px;
@@ -178,7 +297,9 @@ a {
   line-height: 1.5;
 }
 
-/* SECTIONS */
+/* =====================
+   SECTION HEADERS
+===================== */
 
 .section-header {
   margin-bottom: 28px;
@@ -203,6 +324,10 @@ a {
   margin-top: 6px;
 }
 
+/* =====================
+   GRIDS
+===================== */
+
 .about__grid,
 .skills__grid {
   display: grid;
@@ -223,7 +348,9 @@ a {
   gap: 16px;
 }
 
-/* CARDS */
+/* =====================
+   CARDS
+===================== */
 
 .card {
   background: var(--surface);
@@ -266,6 +393,113 @@ a {
   border-bottom: none;
 }
 
+/* =====================
+   PROJECT CATEGORIES
+===================== */
+
+.projects__category {
+  margin-bottom: 48px;
+}
+
+.projects__category:last-child {
+  margin-bottom: 0;
+}
+
+.projects__category-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.projects__category-title::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Placeholder card */
+.card--placeholder {
+  border: 2px dashed var(--border);
+  box-shadow: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.card--placeholder:hover {
+  transform: none;
+  border-color: var(--primary);
+}
+
+.placeholder__text {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.6;
+  opacity: .7;
+}
+
+/* =====================
+   CERTIFICATIONS — differentiated
+===================== */
+
+.cert-card {
+  border-left: 4px solid var(--cert-color, var(--primary));
+  padding-left: 16px;
+}
+
+.cert-card--csm     { --cert-color: #f97316; }
+.cert-card--capm    { --cert-color: #3b82f6; }
+.cert-card--powerbi { --cert-color: #22c55e; }
+
+.cert-card__badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.cert-card__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--cert-color) 12%, white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cert-card__icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--cert-color);
+}
+
+.cert-card__issuer {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--cert-color);
+}
+
+/* =====================
+   SKILLS
+===================== */
+
 .skill__title {
   font-size: 12px;
   font-weight: 700;
@@ -274,6 +508,10 @@ a {
   margin-bottom: 10px;
   letter-spacing: .05em;
 }
+
+/* =====================
+   PROJECTS
+===================== */
 
 .project__tag {
   display: inline-block;
@@ -285,7 +523,8 @@ a {
   color: var(--primary);
   margin-bottom: 10px;
 }
-  .project__title {
+
+.project__title {
   font-family: var(--serif);
   font-size: 20px;
   margin-bottom: 8px;
@@ -313,6 +552,10 @@ a {
   color: var(--muted);
 }
 
+/* =====================
+   CONTACT
+===================== */
+
 .contact {
   padding: 72px 0;
 }
@@ -323,11 +566,7 @@ a {
   gap: 20px;
   padding: 40px;
   border-radius: var(--radius);
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary-dark)
-  );
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
   align-items: center;
 }
@@ -372,13 +611,42 @@ a {
   opacity: .9;
 }
 
+/* =====================
+   FOOTER
+===================== */
+
 .footer {
   text-align: center;
-  padding: 24px 0;
+  padding: 28px 0;
   font-size: 12px;
   color: var(--muted);
   border-top: 1px solid var(--border);
 }
+
+.footer__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer__divider {
+  color: var(--border);
+}
+
+.footer__link {
+  color: var(--muted);
+  transition: color .15s;
+}
+
+.footer__link:hover {
+  color: var(--primary);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
 
 @media (max-width: 768px) {
 
@@ -404,6 +672,10 @@ a {
   .nav__menu {
     display: none;
   }
+
+  .nav__hamburger {
+    display: flex;
+  }
 }
 
 </style>
@@ -420,72 +692,82 @@ a {
       Good<span class="nav__brand-accent">Enough</span>Works
     </div>
 
-    <ul class="nav__menu">
-      <li><a href="#projects" class="nav__link">Projects</a></li>
-      <li><a href="#about" class="nav__link">Certifications</a></li>
-      <li><a href="#skills" class="nav__link">Skills</a></li>
-     <li><a href="#contact" class="nav__link">Connect</a></li>
+    <ul class="nav__menu" id="nav-menu">
+      <li><a href="#projects"        class="nav__link" data-section="projects">Projects</a></li>
+      <li><a href="#certifications"  class="nav__link" data-section="certifications">Certifications</a></li>
+      <li><a href="#skills"          class="nav__link" data-section="skills">Skills</a></li>
+      <li><a href="#contact"         class="nav__link" data-section="contact">Connect</a></li>
     </ul>
+
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
   </div>
 </nav>
 
-<section class="hero">
+<!-- Mobile drawer -->
+<div class="nav__drawer" id="nav-drawer" aria-hidden="true">
+  <div class="nav__drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="nav__drawer-panel" role="dialog" aria-label="Navigation">
+    <button class="nav__drawer-close" id="drawer-close" aria-label="Close menu">✕</button>
+    <a href="#projects"       class="nav__drawer-link" data-section="projects">Projects</a>
+    <a href="#certifications" class="nav__drawer-link" data-section="certifications">Certifications</a>
+    <a href="#skills"         class="nav__drawer-link" data-section="skills">Skills</a>
+    <a href="#contact"        class="nav__drawer-link" data-section="contact">Connect</a>
+  </div>
+</div>
 
+<section class="hero">
   <div class="container hero__container">
 
     <p class="hero__badge">
-  Analytics • Operations • Curiosity-driven improvement
-</p>
+      Analytics • Operations • Curiosity-driven improvement
+    </p>
 
     <h1 class="hero__title">
       Built, explored,<br>
-      <span class="hero__highlight">
-        improved.
-      </span>
+      <span class="hero__highlight">improved.</span>
     </h1>
 
-   <p class="hero__description">
-  Projects, dashboards, process improvements, and the occasional rabbit hole. A place for useful work, interesting questions, and things learned along the way.
-</p>
+    <p class="hero__description">
+      Projects, dashboards, process improvements, and the occasional rabbit hole. A place for useful work, interesting questions, and things learned along the way.
+    </p>
 
-<div class="metrics">
+    <div class="metrics">
 
-  <div class="metric">
-    <div class="metric__value">Build</div>
-    <div class="metric__label">
-      Dashboards, trackers, and tools
-    </div>
-  </div>
-
-  <div class="metric">
-    <div class="metric__value">Explore</div>
-    <div class="metric__label">
-      Questions worth investigating
-    </div>
-  </div>
-
-  <div class="metric">
-    <div class="metric__value">Improve</div>
-    <div class="metric__label">
-      Processes, workflows, and outcomes
-    </div>
-  </div>
-
-  <div class="metric">
-    <div class="metric__value">Document</div>
-    <div class="metric__label">
-      Lessons learned along the way
-    </div>
-  </div>
-
-</div>
+      <div class="metric">
+        <div class="metric__value">Build</div>
+        <div class="metric__label">Dashboards, trackers, and tools</div>
       </div>
+
+      <div class="metric">
+        <div class="metric__value">Explore</div>
+        <div class="metric__label">Questions worth investigating</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric__value">Improve</div>
+        <div class="metric__label">Processes, workflows, and outcomes</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric__value">Document</div>
+        <div class="metric__label">Lessons learned along the way</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 </header>
 
 <main>
-  <!-- PROJECTS -->
+
+<!-- PROJECTS -->
 <section id="projects" class="section">
   <div class="container">
 
@@ -497,71 +779,92 @@ a {
       </p>
     </div>
 
-    <div class="projects__grid">
+    <!-- ========== CONSULTING ========== -->
+    <div class="projects__category">
+      <h3 class="projects__category-title">Consulting</h3>
+      <div class="projects__grid">
 
-      <div class="card">
-        <div class="project__tag">Power BI · Analytics</div>
+        <!-- PROJECT CARD — copy and paste this block to add a new Consulting project
+        <div class="card">
+          <div class="project__tag">Consulting · [Sub-tag]</div>
+          <h3 class="project__title">Project Title</h3>
+          <p class="project__description">
+            Describe the project here — what problem it solved, what approach was taken, and what the outcome was.
+          </p>
+          <ul class="project__meta">
+            <li>Tool / Method</li>
+            <li>Tool / Method</li>
+            <li>Tool / Method</li>
+          </ul>
+        </div>
+        -->
 
-        <h3 class="project__title">
-          MSME Employment & Credit Dashboard
-        </h3>
+        <div class="card card--placeholder">
+          <p class="placeholder__text">Your consulting projects will appear here. Uncomment and fill in a project card above.</p>
+        </div>
 
-        <p class="project__description">
-          Started with a simple question: how evenly is credit reaching India's MSME sector? Built from RBI datasets to explore employment trends, lending patterns, and the stories hidden inside spreadsheets.
-        </p>
-
-        <ul class="project__meta">
-          <li>DAX</li>
-          <li>RBI Data</li>
-          <li>Power BI</li>
-          <li>Data Cleaning</li>
-        </ul>
       </div>
-
-      <div class="card">
-        <div class="project__tag">Operations · Process</div>
-
-        <h3 class="project__title">
-          Audit Compliance Tracking — NPCIL
-        </h3>
-
-        <p class="project__description">
-          Not every improvement needs a grand transformation programme. Sometimes it simply means creating clearer tracking systems so teams spend less time searching and more time executing.
-        </p>
-
-        <ul class="project__meta">
-          <li>Process Mapping</li>
-          <li>Root Cause Analysis</li>
-          <li>Compliance</li>
-          <li>Excel</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="project__tag">Project Management · Agile</div>
-
-        <h3 class="project__title">
-          Cycle Time Reduction Initiative
-        </h3>
-
-        <p class="project__description">
-          A practical exercise in identifying small bottlenecks that quietly slow everything down. The objective wasn't perfection—it was helping the process work better than it did yesterday.
-        </p>
-
-        <ul class="project__meta">
-          <li>Scrum</li>
-          <li>KPI Design</li>
-          <li>Lean</li>
-          <li>CSM</li>
-        </ul>
-      </div>
-
     </div>
+
+    <!-- ========== DATA ANALYSIS ========== -->
+    <div class="projects__category">
+      <h3 class="projects__category-title">Data Analysis</h3>
+      <div class="projects__grid">
+
+        <!-- PROJECT CARD — copy and paste this block to add a new Data Analysis project
+        <div class="card">
+          <div class="project__tag">Data Analysis · [Sub-tag]</div>
+          <h3 class="project__title">Project Title</h3>
+          <p class="project__description">
+            Describe the project here — what data was used, what questions were explored, and what was found.
+          </p>
+          <ul class="project__meta">
+            <li>Tool / Method</li>
+            <li>Tool / Method</li>
+            <li>Tool / Method</li>
+          </ul>
+        </div>
+        -->
+
+        <div class="card card--placeholder">
+          <p class="placeholder__text">Your data analysis projects and dashboards will appear here. Uncomment and fill in a project card above.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========== PROJECT MANAGEMENT ========== -->
+    <div class="projects__category">
+      <h3 class="projects__category-title">Project Management</h3>
+      <div class="projects__grid">
+
+        <!-- PROJECT CARD — copy and paste this block to add a new Project Management project
+        <div class="card">
+          <div class="project__tag">Project Management · [Sub-tag]</div>
+          <h3 class="project__title">Project Title</h3>
+          <p class="project__description">
+            Describe the project here — scope, approach, tools used, and outcomes delivered.
+          </p>
+          <ul class="project__meta">
+            <li>Tool / Method</li>
+            <li>Tool / Method</li>
+            <li>Tool / Method</li>
+          </ul>
+        </div>
+        -->
+
+        <div class="card card--placeholder">
+          <p class="placeholder__text">Your project management work will appear here. Uncomment and fill in a project card above.</p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="about" class="section">
+<section id="certifications" class="section">
   <div class="container">
 
     <div class="section-header">
@@ -574,25 +877,53 @@ a {
 
     <div class="about__grid">
 
-      <div class="card">
+      <!-- CSM — orange -->
+      <div class="card cert-card cert-card--csm">
+        <div class="cert-card__badge">
+          <div class="cert-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <span class="cert-card__issuer">Scrum Alliance</span>
+        </div>
         <h3>CSM — Certified ScrumMaster</h3>
-        <p>
-          Scrum Alliance. Agile delivery, iterative planning, facilitation, and helping teams move forward without unnecessary complexity.
-        </p>
+        <p>Agile delivery, iterative planning, facilitation, and helping teams move forward without unnecessary complexity.</p>
       </div>
 
-      <div class="card">
+      <!-- CAPM — blue -->
+      <div class="card cert-card cert-card--capm">
+        <div class="cert-card__badge">
+          <div class="cert-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="1"/>
+              <path d="M9 12h6M9 16h4"/>
+            </svg>
+          </div>
+          <span class="cert-card__issuer">PMI</span>
+        </div>
         <h3>CAPM — Project Management</h3>
-        <p>
-          PMI. Foundation in project planning, risk management, stakeholder engagement, scheduling, and structured execution.
-        </p>
+        <p>Foundation in project planning, risk management, stakeholder engagement, scheduling, and structured execution.</p>
       </div>
 
-      <div class="card">
+      <!-- Power BI — green -->
+      <div class="card cert-card cert-card--powerbi">
+        <div class="cert-card__badge">
+          <div class="cert-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="12" width="4" height="9"/>
+              <rect x="10" y="6" width="4" height="15"/>
+              <rect x="17" y="3" width="4" height="18"/>
+            </svg>
+          </div>
+          <span class="cert-card__issuer">Microsoft</span>
+        </div>
         <h3>Power BI — Data Visualisation</h3>
-        <p>
-          Microsoft. Turning spreadsheets, datasets, and business information into dashboards that support decision-making.
-        </p>
+        <p>Turning spreadsheets, datasets, and business information into dashboards that support decision-making.</p>
       </div>
 
     </div>
@@ -644,31 +975,18 @@ a {
         </ul>
       </div>
 
-      <div class="card">
-        <div class="skill__title">Domain Knowledge</div>
-        <ul>
-          <li>Nuclear Operations</li>
-          <li>Manufacturing</li>
-          <li>Banking &amp; MSME Finance</li>
-          <li>Regulatory Compliance</li>
-        </ul>
-      </div>
-
     </div>
 
   </div>
 </section>
-<!-- ABOUT / CONTACT -->
+
+<!-- CONNECT -->
 <section id="contact" class="contact">
   <div class="container">
-
     <div class="contact__container">
 
       <div>
-        <h2 class="contact__heading">
-          B. Lognath
-        </h2>
-
+        <h2 class="contact__heading">B. Lognath</h2>
         <p class="contact__subtext">
           GoodEnoughWorks is where I document projects, process improvements, dashboards, and lessons learned along the way. Each project reflects an attempt to understand a problem, improve a process, or make better decisions using data.
         </p>
@@ -676,29 +994,17 @@ a {
 
       <div class="contact__links">
 
-        
         <a class="contact__link"
            href="https://www.linkedin.com/in/b-lognath/"
            target="_blank"
            rel="noopener noreferrer"
            aria-label="LinkedIn profile">
-
-          <svg width="18" height="18"
-               viewBox="0 0 24 24"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="2"
-               stroke-linecap="round"
-               stroke-linejoin="round">
-
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
             <rect x="2" y="9" width="4" height="12"/>
             <circle cx="4" cy="4" r="2"/>
-
           </svg>
-
           LinkedIn
-
         </a>
 
         <a class="contact__link"
@@ -706,37 +1012,92 @@ a {
            target="_blank"
            rel="noopener noreferrer"
            aria-label="GitHub profile">
-
-          <svg width="18" height="18"
-               viewBox="0 0 24 24"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="2"
-               stroke-linecap="round"
-               stroke-linejoin="round">
-
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-
           </svg>
-
           GitHub
-
         </a>
 
       </div>
 
     </div>
-
   </div>
 </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    GoodEnoughWorks · Projects, questions, and useful things
+    <div class="footer__inner">
+      <span>GoodEnoughWorks</span>
+      <span class="footer__divider">·</span>
+      <span>Projects, questions, and useful things</span>
+      <span class="footer__divider">·</span>
+      <a href="https://www.linkedin.com/in/b-lognath/" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a>
+      <span class="footer__divider">·</span>
+      <a href="https://github.com/blognath" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
+      <span class="footer__divider">·</span>
+      <span>© 2026</span>
+    </div>
   </div>
 </footer>
+
+<script>
+/* =====================================================
+   1. ACTIVE NAV — IntersectionObserver
+===================================================== */
+(function () {
+  const sections    = document.querySelectorAll('section[id]');
+  const navLinks    = document.querySelectorAll('.nav__link[data-section]');
+  const drawerLinks = document.querySelectorAll('.nav__drawer-link[data-section]');
+
+  function setActive(id) {
+    [...navLinks, ...drawerLinks].forEach(link => {
+      link.classList.toggle('is-active', link.dataset.section === id);
+    });
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+
+  sections.forEach(s => observer.observe(s));
+})();
+
+/* =====================================================
+   2. MOBILE HAMBURGER — drawer open / close
+===================================================== */
+(function () {
+  const hamburger   = document.getElementById('hamburger');
+  const drawer      = document.getElementById('nav-drawer');
+  const backdrop    = document.getElementById('drawer-backdrop');
+  const closeBtn    = document.getElementById('drawer-close');
+  const drawerLinks = document.querySelectorAll('.nav__drawer-link');
+
+  function openDrawer() {
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  backdrop.addEventListener('click', closeDrawer);
+  drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+})();
+</script>
 
 </body>
 </html>
