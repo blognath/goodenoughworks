@@ -347,11 +347,6 @@ a {
   grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
   gap: 16px;
 }
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-  gap: 16px;
-}
 
 .projects__grid a {
   text-decoration: none;
@@ -788,12 +783,41 @@ a {
       </p>
     </div>
 
+    <!--
+      ============================================================
+      HOW TO ADD A NEW PROJECT
+      ============================================================
+      1. Find the category section below: Consulting, Data Analysis,
+         or Project Management.
+      2. Each category ends with a hidden example card, stored in a
+         template element so it never renders on the page no matter
+         how it's edited. View page source to copy it cleanly, or
+         just copy the visible pattern used by an existing project.
+      3. Paste your copy inside that category's project grid, above
+         the placeholder card.
+      4. Fill in the tag, title, description, and tool/method list.
+      5. If the project links to its own page, wrap the card in a
+         link, the way the Data Analysis example does.
+      6. Once a category has a real project card, the placeholder
+         for that category disappears automatically (handled by the
+         script at the bottom of the page) — no manual cleanup needed.
+      ============================================================
+    -->
+
     <!-- ========== CONSULTING ========== -->
     <div class="projects__category">
       <h3 class="projects__category-title">Consulting</h3>
       <div class="projects__grid">
 
-        <!-- PROJECT CARD — copy and paste this block to add a new Consulting project
+        <!-- Real Consulting project cards go here. Copy the example below. -->
+
+        <div class="card card--placeholder">
+          <p class="placeholder__text">Your consulting projects will appear here. Copy the example card template (see template#card-example-consulting below) and fill it in.</p>
+        </div>
+
+      </div>
+
+      <template id="card-example-consulting">
         <div class="card">
           <div class="project__tag">Consulting · [Sub-tag]</div>
           <h3 class="project__title">Project Title</h3>
@@ -806,59 +830,40 @@ a {
             <li>Tool / Method</li>
           </ul>
         </div>
-        -->
-
-        <div class="card card--placeholder">
-          <p class="placeholder__text">Your consulting projects will appear here. Uncomment and fill in a project card above.</p>
-        </div>
-
-      </div>
+      </template>
     </div>
 
     <!-- ========== DATA ANALYSIS ========== -->
-    <a href="projects/data_analysis-dashboard.html">
     <div class="projects__category">
+      <h3 class="projects__category-title">Data Analysis</h3>
+      <div class="projects__grid">
 
-  <h3 class="projects__category-title">Data Analysis</h3>
-
-  <div class="projects__grid">
-
-    <a href="projects/data_analysis-dashboard.html">
-
-      <div class="card">
-
-        <div class="project__tag">
-          Data Analysis · [Sub-tag]
-        </div>
-
-        <h3 class="project__title">
-          Project Title
-        </h3>
-
-        <p class="project__description">
-          Describe the project here.
-        </p>
-
-        <ul class="project__meta">
-          <li>Tool / Method</li>
-          <li>Tool / Method</li>
-          <li>Tool / Method</li>
-        </ul>
-
-      </div>
-
-    </a>
-
-  </div>
-
-</div>
-        -->
+        <!-- Real Data Analysis project cards go here. Copy the example below.
+             If the project has its own page, wrap the card in an <a> tag,
+             as shown in the example. -->
 
         <div class="card card--placeholder">
-          <p class="placeholder__text">Your data analysis projects and dashboards will appear here. Uncomment and fill in a project card above.</p>
+          <p class="placeholder__text">Your data analysis projects and dashboards will appear here. Copy the example card template (see template#card-example-data-analysis below) and fill it in.</p>
         </div>
 
       </div>
+
+      <template id="card-example-data-analysis">
+        <a href="projects/your-file.html">
+          <div class="card">
+            <div class="project__tag">Data Analysis · [Sub-tag]</div>
+            <h3 class="project__title">Project Title</h3>
+            <p class="project__description">
+              Describe the project here — what problem it solved, what approach was taken, and what the outcome was.
+            </p>
+            <ul class="project__meta">
+              <li>Tool / Method</li>
+              <li>Tool / Method</li>
+              <li>Tool / Method</li>
+            </ul>
+          </div>
+        </a>
+      </template>
     </div>
 
     <!-- ========== PROJECT MANAGEMENT ========== -->
@@ -866,7 +871,15 @@ a {
       <h3 class="projects__category-title">Project Management</h3>
       <div class="projects__grid">
 
-        <!-- PROJECT CARD — copy and paste this block to add a new Project Management project
+        <!-- Real Project Management project cards go here. Copy the example below. -->
+
+        <div class="card card--placeholder">
+          <p class="placeholder__text">Your project management work will appear here. Copy the example card template (see template#card-example-project-management below) and fill it in.</p>
+        </div>
+
+      </div>
+
+      <template id="card-example-project-management">
         <div class="card">
           <div class="project__tag">Project Management · [Sub-tag]</div>
           <h3 class="project__title">Project Title</h3>
@@ -879,13 +892,7 @@ a {
             <li>Tool / Method</li>
           </ul>
         </div>
-        -->
-
-        <div class="card card--placeholder">
-          <p class="placeholder__text">Your project management work will appear here. Uncomment and fill in a project card above.</p>
-        </div>
-
-      </div>
+      </template>
     </div>
 
   </div>
@@ -1124,6 +1131,21 @@ a {
   backdrop.addEventListener('click', closeDrawer);
   drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+})();
+
+/* =====================================================
+   3. PROJECT PLACEHOLDERS — auto-hide once a category
+      has at least one real project card. This means you
+      never have to remember to delete the placeholder
+      manually when adding your first project to a category.
+===================================================== */
+(function () {
+  document.querySelectorAll('.projects__grid').forEach(grid => {
+    const hasRealCard = grid.querySelector('.card:not(.card--placeholder)');
+    if (hasRealCard) {
+      grid.querySelectorAll('.card--placeholder').forEach(el => el.remove());
+    }
+  });
 })();
 </script>
 
