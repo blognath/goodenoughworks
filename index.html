@@ -504,13 +504,36 @@ a {
    SKILLS
 ===================== */
 
-.skill__title {
-  font-size: 12px;
+.skill__tag {
+  display: inline-block;
+  font-size: 10px;
   font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fff1e0;
   color: var(--primary);
-  text-transform: uppercase;
   margin-bottom: 10px;
-  letter-spacing: .05em;
+}
+
+.skill__group-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.skill__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.skill__meta li {
+  font-size: 11px;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--muted);
 }
 
 /* =====================
@@ -910,6 +933,31 @@ a {
       </p>
     </div>
 
+    <!--
+      ============================================================
+      HOW TO ADD A NEW CERTIFICATION CARD
+      ============================================================
+      1. Each certification card has an accent color, a small icon,
+         an issuer name, a title, and a short description.
+      2. A hidden example card is stored in a template element at
+         the end of this section's grid, so it never renders no
+         matter how it's edited. Copy its pattern, or copy an
+         existing visible certification card below.
+      3. Paste your copy inside the certifications grid, above the
+         placeholder card.
+      4. Fill in the issuer, title, and description. Swap the SVG
+         icon for one that fits (lucide.dev has free matching icons).
+      5. Optional accent color: add a modifier class such as
+         cert-card--yourname and define --cert-color for it in the
+         stylesheet (see the CSM/CAPM/Power BI examples). If you
+         skip this, the card automatically uses the site's default
+         orange accent — no extra CSS required.
+      6. Once a real certification card exists, the placeholder
+         disappears automatically (same script that handles the
+         Projects and Skills placeholders) — no manual cleanup needed.
+      ============================================================
+    -->
+
     <div class="about__grid">
 
       <!-- CSM — orange -->
@@ -961,7 +1009,27 @@ a {
         <p>Turning spreadsheets, datasets, and business information into dashboards that support decision-making.</p>
       </div>
 
+      <div class="card card--placeholder">
+        <p class="placeholder__text">Future certifications will appear here. Copy the example card template (see template#card-example-certification below) and fill it in.</p>
+      </div>
+
     </div>
+
+    <template id="card-example-certification">
+      <div class="card cert-card">
+        <div class="cert-card__badge">
+          <div class="cert-card__icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <span class="cert-card__issuer">Issuing Body</span>
+        </div>
+        <h3>Certification Title</h3>
+        <p>Describe what the certification covers and how it applies to your work.</p>
+      </div>
+    </template>
 
   </div>
 </section>
@@ -978,11 +1046,32 @@ a {
       </p>
     </div>
 
+    <!--
+      ============================================================
+      HOW TO ADD A NEW SKILL GROUP CARD
+      ============================================================
+      1. Each skill group is a card with a small tag (kicker),
+         a title, and a row of skill tags below it.
+      2. A hidden example card is stored in a template element at
+         the end of this section's grid, so it never renders no
+         matter how it's edited. Copy its pattern, or copy an
+         existing visible skill card below.
+      3. Paste your copy inside the skills grid, above the
+         placeholder card.
+      4. Fill in the tag, title, and skill tag list — add or
+         remove list items freely, the tag row wraps automatically.
+      5. Once a real skill card exists, the placeholder disappears
+         automatically (same script that handles the Projects
+         section placeholders) — no manual cleanup needed.
+      ============================================================
+    -->
+
     <div class="skills__grid">
 
       <div class="card">
-        <div class="skill__title">Analytics & Data</div>
-        <ul>
+        <div class="skill__tag">Capability · Analytics</div>
+        <h3 class="skill__group-title">Analytics & Data</h3>
+        <ul class="skill__meta">
           <li>Power BI &amp; DAX</li>
           <li>Excel (Advanced)</li>
           <li>SQL &amp; Reporting</li>
@@ -991,8 +1080,9 @@ a {
       </div>
 
       <div class="card">
-        <div class="skill__title">Consulting & Strategy</div>
-        <ul>
+        <div class="skill__tag">Capability · Consulting</div>
+        <h3 class="skill__group-title">Consulting & Strategy</h3>
+        <ul class="skill__meta">
           <li>Process Mapping</li>
           <li>Root Cause Analysis</li>
           <li>KPI Design</li>
@@ -1001,8 +1091,9 @@ a {
       </div>
 
       <div class="card">
-        <div class="skill__title">Project Management</div>
-        <ul>
+        <div class="skill__tag">Capability · Project Management</div>
+        <h3 class="skill__group-title">Project Management</h3>
+        <ul class="skill__meta">
           <li>Scrum &amp; Agile</li>
           <li>CAPM Framework</li>
           <li>Risk Tracking</li>
@@ -1010,7 +1101,24 @@ a {
         </ul>
       </div>
 
+      <div class="card card--placeholder">
+        <p class="placeholder__text">Future skill groups will appear here. Copy the example card template (see template#card-example-skill below) and fill it in.</p>
+      </div>
+
     </div>
+
+    <template id="card-example-skill">
+      <div class="card">
+        <div class="skill__tag">Capability · [Category]</div>
+        <h3 class="skill__group-title">Skill Group Title</h3>
+        <ul class="skill__meta">
+          <li>Tool / Skill</li>
+          <li>Tool / Skill</li>
+          <li>Tool / Skill</li>
+          <li>Tool / Skill</li>
+        </ul>
+      </div>
+    </template>
 
   </div>
 </section>
@@ -1134,13 +1242,14 @@ a {
 })();
 
 /* =====================================================
-   3. PROJECT PLACEHOLDERS — auto-hide once a category
-      has at least one real project card. This means you
-      never have to remember to delete the placeholder
-      manually when adding your first project to a category.
+   3. SECTION PLACEHOLDERS — auto-hide once a grid (in
+      Projects, Certifications, or Skills) has at least one
+      real card. This means you never have to remember to
+      delete the placeholder manually when adding the first
+      real card to a category, certification, or skill group.
 ===================================================== */
 (function () {
-  document.querySelectorAll('.projects__grid').forEach(grid => {
+  document.querySelectorAll('.projects__grid, .about__grid, .skills__grid').forEach(grid => {
     const hasRealCard = grid.querySelector('.card:not(.card--placeholder)');
     if (hasRealCard) {
       grid.querySelectorAll('.card--placeholder').forEach(el => el.remove());
