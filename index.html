@@ -265,7 +265,7 @@ a {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(5,1fr);
   margin-top: 28px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -681,7 +681,7 @@ a {
     grid-template-columns: repeat(2,1fr);
   }
 
-  .metric:nth-child(2) {
+  .metric:nth-child(2n) {
     border-right: none;
   }
 
@@ -770,23 +770,28 @@ a {
     <div class="metrics">
 
       <div class="metric">
-        <div class="metric__value">Build</div>
-        <div class="metric__label">Dashboards, trackers, and tools</div>
+        <div class="metric__value">Observe</div>
+        <div class="metric__label">Challenges and opportunities</div>
       </div>
 
       <div class="metric">
-        <div class="metric__value">Explore</div>
-        <div class="metric__label">Questions worth investigating</div>
+        <div class="metric__value">Evaluate</div>
+        <div class="metric__label">The evidence</div>
       </div>
 
       <div class="metric">
-        <div class="metric__value">Improve</div>
-        <div class="metric__label">Processes, workflows, and outcomes</div>
+        <div class="metric__value">Reflect</div>
+        <div class="metric__label">Insights, lessons, and next steps</div>
       </div>
 
       <div class="metric">
-        <div class="metric__value">Document</div>
-        <div class="metric__label">Lessons learned along the way</div>
+        <div class="metric__value">Execute</div>
+        <div class="metric__label">Implementing solutions</div>
+      </div>
+
+      <div class="metric">
+        <div class="metric__value">Share</div>
+        <div class="metric__label">Knowledge and learnings</div>
       </div>
 
     </div>
@@ -806,7 +811,7 @@ a {
       <p class="section-header__kicker">Work</p>
       <h2 class="section-header__title">Projects</h2>
       <p class="section-header__subtitle">
-        Projects focused on understanding problems, improving processes, and turning information into decisions.
+        Projects that investigate challenges, evaluate possibilities, and share useful findings.
       </p>
     </div>
 
